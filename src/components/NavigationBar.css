@@ -1,17 +1,31 @@
 /* Navbar Container */
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #f4f4f4;
+    background-color: #D1D3D4;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+  } */
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background-color: #D1D3D4; /* Match the home section's background color */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: none; /* Remove shadow */
+    border: none; /* Remove any border */
   }
+  
   
   /* Logo */
   .logo {
@@ -77,7 +91,7 @@
   
   .connect-btn:hover {
     background-color: #333;
-    color: #fff;
+    color: #D1D3D4;
   }
   
   /* Hamburger Menu */
@@ -94,7 +108,7 @@
     position: absolute;
     top: 60px;
     right: 10px;
-    background: #f4f4f4;
+    background: #D1D3D4;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
