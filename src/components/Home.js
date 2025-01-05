@@ -5,7 +5,7 @@ import profileImage from "../assets/profile.png"; // Transparent image
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-container" id="home">
       <div className="home-text">
         <h1 className="animated-heading">Balakrishna Mangala</h1>
         <h2>

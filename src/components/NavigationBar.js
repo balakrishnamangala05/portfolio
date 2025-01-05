@@ -5,7 +5,7 @@ import "./NavigationBar.css";
 const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 768);
-  const [isHovered, setIsHovered] = useState(false); // State to track hover on the logo
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,6 +16,16 @@ const NavigationBar = () => {
     if (window.innerWidth > 768) {
       setIsMenuOpen(false); // Close menu on desktop view
     }
+  };
+
+  const scrollToSection = (event, id) => {
+    event.preventDefault(); // Prevent default fast jump behavior
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", `#${id}`); // Update URL hash
+    }
+    setIsMenuOpen(false); // Close menu on mobile after navigation
   };
 
   useEffect(() => {
@@ -48,8 +58,9 @@ const NavigationBar = () => {
         initial="initial"
         animate="animate"
         whileHover="hover"
-        onHoverStart={() => setIsHovered(true)} // Show "Balakrishna M" on hover
-        onHoverEnd={() => setIsHovered(false)} // Revert to "@ code by Bala" when hover ends
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+        onClick={(e) => scrollToSection(e, "home")} // Scroll to Home on click
       >
         {isHovered ? "© Balakrishna Mangala" : "© code by Bala"}
       </motion.div>
@@ -63,20 +74,27 @@ const NavigationBar = () => {
         )}
 
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          {["Home", "About Me", "Experience", "Academics", "Projects"].map(
-            (link, index) => (
-              <motion.li
-                key={index}
-                className="nav-item"
-                variants={linkVariants}
-                whileHover="hover"
+          {[
+            { id: "home", label: "Home" },
+            { id: "about-me", label: "About Me" },
+            { id: "experience", label: "Experience" },
+            { id: "academics", label: "Academics" },
+            { id: "projects", label: "Projects" },
+          ].map((link, index) => (
+            <motion.li
+              key={index}
+              className="nav-item"
+              variants={linkVariants}
+              whileHover="hover"
+            >
+              <a
+                href={`#${link.id}`}
+                onClick={(e) => scrollToSection(e, link.id)} // Smooth scrolling
               >
-                <a href={`#${link.toLowerCase().replace(" ", "-")}`}>
-                  {link}
-                </a>
-              </motion.li>
-            )
-          )}
+                {link.label}
+              </a>
+            </motion.li>
+          ))}
           <div className="social-icons">
             <a
               href="https://linkedin.com"
