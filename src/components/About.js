@@ -74,7 +74,7 @@ const About = () => {
             dynamic problem solver with a passion for innovation, let's connect
             and explore the possibilities together!
           </p>
-          <a href="mailto:example@example.com" className="connect-btn1">
+          <a href="balakrishna.mangala@outlook.com" className="connect-btn1">
             Connect!
           </a>
         </motion.div>

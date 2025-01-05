@@ -130,7 +130,7 @@ const NavigationBar = () => {
               />
             </a>
           </div>
-          <a href="mailto:example@example.com" className="connect-btn">
+          <a href="balakrishna.mangala@outlook.com" className="connect-btn">
             Let's Connect <span>→</span>
           </a>
         </ul>
