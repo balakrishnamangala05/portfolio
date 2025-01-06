@@ -32,7 +32,7 @@ const Home = () => {
           <p>⭐ I live in Baltimore, Maryland.</p>
         </div>
         <a
-          href="/assets/Balakrishna_s_Resume_docs.pdf"
+          href="/Balakrishna_s_Resume_docs.pdf"
           download="Balakrishna_s_Resume_docs.pdf"
           className="resume-btn animated-resume-btn"
         >

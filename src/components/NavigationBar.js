@@ -97,7 +97,7 @@ const NavigationBar = () => {
           ))}
           <div className="social-icons">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/balakrishnamangala/"
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
@@ -108,7 +108,7 @@ const NavigationBar = () => {
               />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/balachenni_balakrishna/"
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram"
@@ -119,7 +119,7 @@ const NavigationBar = () => {
               />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/balakrishnamangala05"
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
@@ -130,7 +130,7 @@ const NavigationBar = () => {
               />
             </a>
           </div>
-          <a href="balakrishna.mangala@outlook.com" className="connect-btn">
+          <a href="mailto: balakrishna.mangala@outlook.com" className="connect-btn">
             Let's Connect <span>→</span>
           </a>
         </ul>
