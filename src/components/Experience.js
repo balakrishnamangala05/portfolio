@@ -1,117 +1,157 @@
-import React, { useState } from "react";
-import "./Experience.css";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import "./Experience.css";
 
 const Experience = () => {
-  const [activeSection, setActiveSection] = useState("company");
-
-  const handleSectionClick = (section) => {
-    setActiveSection(section);
-  };
+  const [activeTab, setActiveTab] = useState("Capgemini");
 
   const skills = [
-    "Python",
-    "Java",
+    "C++",
+    "SQL",
     "JavaScript",
+    "Java",
+    "HTML,/CSS",
+    "Angular",
     "React.js",
     "Node.js",
-    "Spring Boot",
     "MongoDB",
     "Git",
     "PostgreSQL",
-    "Google Cloud Platform",
+    "Machine Learning",
   ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const carousel = document.querySelector(".carousel");
+      if (carousel) {
+        carousel.scrollBy({ left: 20, behavior: "smooth" });
+      }
+    }, 10);
+    return () => clearInterval(interval);
+  }, []);
+
+  const tabVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        stiffness: 300,
+      },
+    },
+    bubble: {
+      scale: [1, 1.2, 1],
+      transition: {
+        duration: 0.8,
+        repeat: Infinity,
+        repeatType: "loop",
+      },
+    },
+  };
 
   return (
     <div className="experience-container" id="experience">
-      {/* Tabs */}
-      <div className="tabs">
-        <button
-          className={`tab-button ${activeSection === "company" ? "active" : ""}`}
-          onClick={() => handleSectionClick("company")}
+      <div className="experience-tabs">
+        <motion.button
+          className={`tab-button ${activeTab === "Capgemini" ? "active" : ""}`}
+          onClick={() => setActiveTab("Capgemini")}
+          variants={tabVariants}
+          whileHover="hover"
         >
           Capgemini
-        </button>
-        <button
-          className={`tab-button ${activeSection === "university" ? "active" : ""}`}
-          onClick={() => handleSectionClick("university")}
+          {activeTab === "Capgemini" && (
+            <motion.span
+              className="bubble-dot"
+              variants={tabVariants}
+              animate="bubble"
+            />
+          )}
+        </motion.button>
+        <motion.button
+          className={`tab-button ${activeTab === "UMBC" ? "active" : ""}`}
+          onClick={() => setActiveTab("UMBC")}
+          variants={tabVariants}
+          whileHover="hover"
         >
           UMBC
-        </button>
-        <button
-          className={`tab-button ${activeSection === "skills" ? "active" : ""}`}
-          onClick={() => handleSectionClick("skills")}
+          {activeTab === "UMBC" && (
+            <motion.span
+              className="bubble-dot"
+              variants={tabVariants}
+              animate="bubble"
+            />
+          )}
+        </motion.button>
+        <motion.button
+          className={`tab-button ${activeTab === "Skills" ? "active" : ""}`}
+          onClick={() => setActiveTab("Skills")}
+          variants={tabVariants}
+          whileHover="hover"
         >
           Skills
-        </button>
+          {activeTab === "Skills" && (
+            <motion.span
+              className="bubble-dot"
+              variants={tabVariants}
+              animate="bubble"
+            />
+          )}
+        </motion.button>
       </div>
 
-      {/* Content */}
-      <div className="content-box">
-        {activeSection === "company" && (
-          <motion.div
-            className="company-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+      <div className="experience-content">
+        {activeTab === "Capgemini" && (
+          <div className="content-box capgemini-theme">
+            <img
+              src="https://companieslogo.com/img/orig/CAP.PA-9b4110b0.png?t=1720244491"
+              alt="Capgemini Logo"
+              className="company-logo"
+            />
             <h2>Capgemini</h2>
-            <h3>Software Engineer Intern</h3>
-            <p>June 2022 - January 2023</p>
+            <h3>Associate-II Software Engineer</h3>
+            <p>March 2022 - August 2023</p>
             <ul>
-              <li>
-                Worked on designing and developing the process of Title Procurement – Automating Form Generation, Document Management, and Ownership Transfer processes of vehicles.
-              </li>
-              <li>
-                Learned Ruby from scratch. Developed REST API microservices with Ruby and utilized SQL and Redis cache to support the backend.
-              </li>
-              <li>
-                Conducted peer code reviews, fixed bugs, and implemented new functionalities, resolving 10% of open defects.
-              </li>
+              <li><span>Developed and maintained components for both front-end and back-end of applications using the react.js and node.js.Conducted code reviews and contributed to the continuous improvement of development processes. </span></li>
+              <li><span>Worked on back-end development tasks, including server coding and database management. Participated in agile Software development, prototyped and code reviews with a small team of developers.</span></li>
+              <li><span>Designed new features and performance enhancements for existing systems. Designed and implemented dynamic solutions to visualize and deliver daily test result reports to team members using React.</span></li>
             </ul>
-          </motion.div>
+          </div>
         )}
-        {activeSection === "university" && (
-          <motion.div
-            className="university-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+
+        {activeTab === "UMBC" && (
+          <div className="content-box umbc-theme">
+            <img
+              src="https://styleguide.umbc.edu/wp-content/uploads/sites/113/2019/03/UMBC-vertical-logo-CMYK-on-black.png"
+              alt="UMBC Logo"
+              className="company-logo"
+            />
             <h2>University of Maryland, Baltimore County</h2>
-            <h3>Graduate Student Assistant</h3>
-            <p>September 2021 - May 2022</p>
+            <h3>Master's in Computer Science</h3>
+            <p>September 2023 - May 2025</p>
             <ul>
-              <li>Graded assignments for courses in Java and C++ programming.</li>
-              <li>Assisted the professor in teaching classes and provided guidance to students.</li>
-              <li>
-                Collaborated with faculty members on research projects, conducting literature reviews and data analysis.
-              </li>
+              <li><span>Relevant Project1: SAFE-MD-- Statistical Analysis and Forecasting of Crime Events in Maryland.
+              This project has demonstrated the potential of using machine learning techniques to predict crime rates in Maryland counties, providing valuable insights that can inform public safety strategies and policy decisions.</span></li>
+              <li><span>Relevant Project1: REACT PORTFOLIO PROJECT-- Designed and developed a responsive portfolio website using React and Framer Motion to showcase projects, skills, and achievements, integrating smooth animations for an engaging user experience across all devices.</span></li>
             </ul>
-          </motion.div>
+          </div>
         )}
-        {activeSection === "skills" && (
-          <motion.div
-            className="skills-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+
+        {activeTab === "Skills" && (
+          <div className="content-box skills-theme">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/7947/7947194.png"
+              alt="Skills Icon"
+              className="company-logo"
+            />
             <h2>Professional Skillset</h2>
             <div className="carousel">
               {skills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  className="skill-item"
-                  initial={{ x: 100 }}
-                  animate={{ x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
+                <div className="carousel-item" key={index}>
                   {skill}
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
     </div>
