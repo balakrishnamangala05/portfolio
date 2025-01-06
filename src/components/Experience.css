@@ -1,122 +1,104 @@
 .experience-container {
-    background-color: #d1d3d4;
     padding: 50px 20px;
+    background-color: #d1d3d4;
     border-radius: 10px;
-    max-width: 1200px;
-    margin: 50px auto;
-  }
-  
-  .experience-title {
-    font-size: 2rem;
-    color: #007bff;
+    margin: 20px auto;
+    max-width: 800px;
     text-align: center;
-    margin-bottom: 30px;
   }
   
-  .experience-box {
-    background: #ffffff;
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .tab-button.active,
+  .tab-button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .content-box {
+    border: 1px solid #ccc;
     border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
-    animation: fadeIn 1s ease-in-out;
   }
   
-  .experience-box h3 {
-    font-size: 1.5rem;
+  h2 {
     color: #007bff;
     margin-bottom: 10px;
   }
   
-  .position {
-    font-size: 1.2rem;
-    font-weight: bold;
+  h3 {
+    color: #333;
     margin-bottom: 10px;
   }
   
-  .duration {
-    font-size: 1rem;
+  p {
+    margin-bottom: 10px;
     color: #555;
-    margin-bottom: 15px;
   }
   
-  .details {
+  ul {
     list-style: none;
     padding: 0;
   }
   
-  .details li {
-    font-size: 1rem;
+  ul li {
     margin-bottom: 10px;
     position: relative;
     padding-left: 20px;
   }
   
-  .details li:before {
+  ul li:before {
     content: "•";
     position: absolute;
     left: 0;
     color: #007bff;
-    font-weight: bold;
   }
   
-  .skills-section {
-    text-align: center;
-  }
-  
-  .skills-carousel {
+  .carousel {
     display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: scroll 10s linear infinite;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
   }
   
   .skill-item {
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 1.2rem;
-    color: #333;
     padding: 10px 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    color: #333;
     transition: transform 0.3s ease-in-out;
   }
   
   .skill-item:hover {
     transform: scale(1.1);
-  }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    background-color: #007bff;
+    color: #fff;
   }
   
   @media (max-width: 768px) {
-    .experience-container {
-      padding: 20px;
+    .content-box {
+      padding: 15px;
     }
   
-    .experience-box {
-      padding: 20px;
-    }
-  
-    .skills-carousel {
+    .tab-button {
       font-size: 0.9rem;
     }
   }
