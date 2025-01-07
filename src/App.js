@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Academics from "./components/Academics";
+import Projects from "./components/Projects";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
       <div id="academics">
         <Academics />
       </div> 
+      <div id="projects">
+        <Projects />
+      </div> 
+      
       
     </div>
   );
