@@ -1,0 +1,104 @@
+.academics-section-container {
+    padding: 100px 30px;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 80px; /* Adjusted spacing between sections */
+  }
+  
+  .academics-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Reduced gap between buttons */
+    margin-bottom: 20px;
+    position: relative; /* For bubble positioning */
+  }
+  
+  .academics-tab-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    position: relative; /* For hover effect */
+  }
+  
+  .academics-tab-button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .academics-tab-button.active::after {
+    content: "";
+    position: absolute;
+    width: 8px; /* Reduced bubble size */
+    height: 8px;
+    background-color: #007bff;
+    border-radius: 50%;
+    bottom: -16px; /* Moved bubble further down */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .academics-tab-button:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .academics-content-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: left;
+  }
+  
+  .ms-theme {
+    border-left: 5px solid #007bff;
+  }
+  
+  .btech-theme {
+    border-left: 5px solid #28a745;
+  }
+  
+  .certifications-theme {
+    border-left: 5px solid #ff6347;
+  }
+  
+  .academics-content-box h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .academics-content-box p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .academics-content-box ul {
+    list-style-type: disc;
+    margin: 15px 0 0 20px;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  .academics-content-box ul li {
+    margin-bottom: 8px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
