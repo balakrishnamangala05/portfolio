@@ -1,0 +1,26 @@
+.footer {
+    background-image: url('https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .footer p {
+    margin: 5px 0;
+  }
+  
+  .footer a {
+    color: #ff8c00; /* Golden color for links */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  

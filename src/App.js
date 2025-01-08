@@ -5,6 +5,8 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import Academics from "./components/Academics";
 import Projects from "./components/Projects";
+import Footer from "./components/Footer";
+
 import "./App.css";
 
 function App() {
@@ -27,7 +29,7 @@ function App() {
         <Projects />
       </div> 
       
-      
+      <Footer />
     </div>
   );
 }
