@@ -26,14 +26,14 @@ const Projects = () => {
       description:
         "An online platform for seamless movie ticket booking at multiplexes, offering real-time seat availability and multiple payment options for user convenience.",
       image: multiplexImage,
-      link: "https://github.com/your-github/multiplex-booking",
+      link: "https://github.com/balakrishnamangala05/multiplex-booking-system-Angular",
     },
     {
       title: "SAFE-MD: Statistical Analysis and Forecasting of Crime Events in Maryland",
       description:
         "A data-driven solution leveraging statistical methods to analyze crime data and predict future trends for better public safety measures in Maryland.",
       image: safeMdImage,
-      link: "https://github.com/your-github/safe-md",
+      link: "https://github.com/balakrishnamangala05/crime-analysis-and-forecasting-in-Maryland.git",
     },
   ];
 
