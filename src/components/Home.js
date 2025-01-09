@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { Typewriter } from "react-simple-typewriter";
-import profileImage from "../assets/profile.png"; // Transparent image
+import profileImage from "../assets/profile.png"; 
 
 const Home = () => {
   return (
@@ -27,9 +27,9 @@ const Home = () => {
           </span>
         </h2>
         <div className="home-description">
-          <p>⭐ A Computer Science Student passionate about building and enhancing software products.</p>
-          <p>⭐ I love coding, learning new technologies, and solving challenging problems!</p>
-          <p>⭐ I live in Baltimore, Maryland.</p>
+          <p>💠 A Computer Science Student passionate about building and enhancing software products.</p>
+          <p>💠 I love coding, learning new technologies, and solving challenging problems!</p>
+          <p>💠 I live in Baltimore, Maryland.</p>
         </div>
         <a
           href="/Balakrishna_s_Resume_docs.pdf"
@@ -41,11 +41,7 @@ const Home = () => {
       </div>
 
       <div className="home-image">
-        <img
-          src={profileImage}
-          alt="Balakrishna Mangala"
-          className="profile-image"
-        />
+        <img src={profileImage} alt="Balakrishna Mangala" className="profile-image" />
       </div>
     </div>
   );

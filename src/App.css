@@ -2,13 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #D1D3D4; /* Lighter than #9A9D9E */
+  background-color: #D1D3D4;
   color: #333;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .App {
-  margin-top: 60px; /* Offset for fixed navbar */
+  margin-top: 60px;
   text-align: center;
 }
 

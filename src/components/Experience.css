@@ -3,7 +3,7 @@
     background-color: #f7f7f7;
     border-radius: 15px;
     max-width: 900px;
-    margin: 60px auto; /* Added margin to create space between sections */
+    margin: 60px auto;
   }
   
   .experience-tabs {
@@ -87,19 +87,18 @@
 
   ul {
     list-style-type: disc;
-    padding-left: 20px; /* Ensures consistent alignment for bullets */
-    text-align: left; /* Aligns text to the left */
-    margin: 0; /* Removes any default margin */
+    padding-left: 20px; 
+    text-align: left;
+    margin: 0;
   }
   
   ul li {
-    margin-bottom: 10px; /* Adds spacing between list items */
-    text-indent: -20px; /* Aligns text with bullets */
-    padding-left: 20px; /* Indents the text properly */
-    line-height: 1.5; /* Improves readability */
-    word-wrap: break-word; /* Ensures long text breaks properly */
+    margin-bottom: 10px; 
+    text-indent: -20px; 
+    padding-left: 20px;
+    line-height: 1.5; 
+    word-wrap: break-word;
   }
-  
   
   
   .carousel {

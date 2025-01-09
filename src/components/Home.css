@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 50px;
-    background-color: #d1d3d4; /* Match global background */
+    background-color: #d1d3d4;
     min-height: 100vh;
     box-sizing: border-box;
     margin: 0;
@@ -16,11 +16,11 @@
   }
   
   .animated-heading {
-    font-size: 3.5rem; /* Increased size for emphasis */
+    font-size: 3.5rem;
     color: #007bff;
     margin-bottom: 10px;
     position: relative;
-    animation: textSlideIn 2s ease-in-out; /* Heading slide-in animation */
+    animation: textSlideIn 2s ease-in-out;
   }
   
   .animated-heading::after {
@@ -72,19 +72,19 @@
     border: 2px solid #007bff;
     border-radius: 5px;
     color: #007bff;
-    font-size: 1.2rem; /* Slightly larger for better visibility */
+    font-size: 1.2rem;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
   }
   
   .animated-resume-btn {
-    animation: bounce 2s infinite; /* Bounce effect for attention */
+    animation: bounce 2s infinite;
   }
   
   .resume-btn:hover {
     background-color: #007bff;
     color: #fff;
-    transform: scale(1.1); /* Slight enlargement on hover */
+    transform: scale(1.1);
   }
   
   .home-image {
@@ -94,15 +94,15 @@
   }
   
   .profile-image {
-    width: 450px; /* Increased size */
-    height: auto; /* Maintain aspect ratio */
+    width: 450px;
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
   .profile-image:hover {
-    transform: scale(1.1); /* Bubble-like effect on hover */
+    transform: scale(1.1);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
   }
   
@@ -163,7 +163,7 @@
     }
   
     .profile-image {
-      width: 300px; /* Smaller size for mobile screens */
+      width: 300px;
       height: auto;
     }
   }

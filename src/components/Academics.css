@@ -4,15 +4,15 @@
     border-radius: 15px;
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: 80px; /* Adjusted spacing between sections */
+    margin-top: 80px; 
   }
   
   .academics-tabs {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Reduced gap between buttons */
+    gap: 10px; 
     margin-bottom: 20px;
-    position: relative; /* For bubble positioning */
+    position: relative;
   }
   
   .academics-tab-button {
@@ -26,7 +26,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     font-size: 1rem;
-    position: relative; /* For hover effect */
+    position: relative;
   }
   
   .academics-tab-button.active {
@@ -37,11 +37,11 @@
   .academics-tab-button.active::after {
     content: "";
     position: absolute;
-    width: 8px; /* Reduced bubble size */
+    width: 8px;
     height: 8px;
     background-color: #007bff;
     border-radius: 50%;
-    bottom: -16px; /* Moved bubble further down */
+    bottom: -16px;
     left: 50%;
     transform: translateX(-50%);
   }

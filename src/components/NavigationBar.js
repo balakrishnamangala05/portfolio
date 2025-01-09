@@ -14,18 +14,18 @@ const NavigationBar = () => {
   const handleResize = () => {
     setIsMobileView(window.innerWidth <= 768);
     if (window.innerWidth > 768) {
-      setIsMenuOpen(false); // Close menu on desktop view
+      setIsMenuOpen(false);
     }
   };
 
   const scrollToSection = (event, id) => {
-    event.preventDefault(); // Prevent default fast jump behavior
+    event.preventDefault();
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `#${id}`); // Update URL hash
+      window.history.pushState(null, "", `#${id}`);
     }
-    setIsMenuOpen(false); // Close menu on mobile after navigation
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const NavigationBar = () => {
 
   const linkVariants = {
     hover: {
-      y: -5, // Bubble effect
+      y: -5,
       scale: 1.1,
       transition: { type: "spring", stiffness: 300 },
     },
@@ -51,7 +51,6 @@ const NavigationBar = () => {
 
   return (
     <nav className="navbar">
-      {/* Left Section: Logo */}
       <motion.div
         className="logo"
         variants={logoVariants}
@@ -60,17 +59,13 @@ const NavigationBar = () => {
         whileHover="hover"
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        onClick={(e) => scrollToSection(e, "home")} // Scroll to Home on click
+        onClick={(e) => scrollToSection(e, "home")}
       >
         {isHovered ? "© Balakrishna Mangala" : "© code by Bala"}
       </motion.div>
-
-      {/* Right Section: Navigation Links */}
       <div className="right-section">
         {isMobileView && (
-          <div className="hamburger" onClick={toggleMenu}>
-            ☰
-          </div>
+          <div className="hamburger" onClick={toggleMenu}>☰</div>
         )}
 
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
@@ -87,10 +82,7 @@ const NavigationBar = () => {
               variants={linkVariants}
               whileHover="hover"
             >
-              <a
-                href={`#${link.id}`}
-                onClick={(e) => scrollToSection(e, link.id)} // Smooth scrolling
-              >
+              <a href={`#${link.id}`} onClick={(e) => scrollToSection(e, link.id)}>
                 {link.label}
               </a>
             </motion.li>
@@ -102,37 +94,30 @@ const NavigationBar = () => {
               rel="noopener noreferrer"
               title="LinkedIn"
             >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
-                alt="LinkedIn"
-              />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" />
             </a>
+
             <a
               href="https://www.instagram.com/balachenni_balakrishna/"
               target="_blank"
               rel="noopener noreferrer"
               title="Instagram"
             >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                alt="Instagram"
-              />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"/>
             </a>
+
             <a
               href="https://github.com/balakrishnamangala05"
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
             >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                alt="GitHub"
-              />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"/>
             </a>
+
           </div>
-          <a href="mailto: balakrishna.mangala@outlook.com" className="connect-btn">
-            Let's Connect <span>→</span>
-          </a>
+          
+          <a href="mailto: balakrishna.mangala@outlook.com" className="connect-btn">Let's Connect <span>→</span> </a>
         </ul>
       </div>
     </nav>

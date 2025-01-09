@@ -1,4 +1,4 @@
-/* Navbar Container */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -11,8 +11,7 @@
     box-shadow: none;
     border: none;
   }
-  
-  /* Logo */
+
   .logo {
     font-size: 1.2rem;
     font-weight: bold;
@@ -24,8 +23,7 @@
   .logo:hover {
     color: #007bff;
   }
-  
-  /* Navigation Links */
+
   .nav-links {
     display: flex;
     list-style: none;
@@ -45,15 +43,13 @@
     color: #007bff;
     font-weight: bold;
   }
-  
-  /* Active Nav Item */
+
   .nav-item.active a {
     color: #ff6347;
     font-weight: bold;
     border-bottom: 2px solid #ff6347;
   }
-  
-  /* Social Icons */
+
   .social-icons {
     display: flex;
     gap: 10px;
@@ -65,8 +61,7 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  
-  /* "Let's Connect" Button */
+
   .connect-btn {
     display: flex;
     align-items: center;
@@ -85,15 +80,13 @@
     background-color: #333;
     color: #d1d3d4;
   }
-  
-  /* Hamburger Menu */
+
   .hamburger {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  
-  /* Dropdown Menu for Mobile */
+
   .nav-links.open {
     display: flex;
     flex-direction: column;
@@ -108,8 +101,7 @@
     z-index: 100;
     width: 90%;
   }
-  
-  /* Responsive Adjustments */
+
   @media (max-width: 768px) {
     .nav-links {
       display: none;

@@ -22,32 +22,25 @@ const Academics = () => {
       <div className="academics-tabs">
         <motion.button
           className={`academics-tab-button ${
-            activeAcademicsTab === "MS" ? "active" : ""
+            activeAcademicsTab === "MS" ? "active" : "" 
           }`}
-          onClick={() => handleTabChange("MS")}
-          whileHover="hover"
-          variants={tabMotion}
-        >
+          onClick={() => handleTabChange("MS")} whileHover="hover" variants={tabMotion} >
           University of Maryland Baltimore County
         </motion.button>
+
         <motion.button
           className={`academics-tab-button ${
             activeAcademicsTab === "BTech" ? "active" : ""
           }`}
-          onClick={() => handleTabChange("BTech")}
-          whileHover="hover"
-          variants={tabMotion}
-        >
+          onClick={() => handleTabChange("BTech")} whileHover="hover" variants={tabMotion}>
           Jawaharlal Nehru Technological University
         </motion.button>
+
         <motion.button
           className={`academics-tab-button ${
             activeAcademicsTab === "Certifications" ? "active" : ""
           }`}
-          onClick={() => handleTabChange("Certifications")}
-          whileHover="hover"
-          variants={tabMotion}
-        >
+          onClick={() => handleTabChange("Certifications")} whileHover="hover" variants={tabMotion}>
           Certifications
         </motion.button>
       </div>
