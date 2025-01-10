@@ -107,8 +107,8 @@ const Experience = () => {
               alt="Capgemini Logo"
               className="company-logo"
             />
-            <h2>Capgemini</h2>
-            <h3>Associate-II Software Engineer</h3>
+            <h2>Capgemini Engineering </h2>
+            <h3>Software Associate-II</h3>
             <p>March 2022 - August 2023</p>
             <ul>
               <li><span>Developed and maintained components for both front-end and back-end of applications using the react.js and node.js.Conducted code reviews and contributed to the continuous improvement of development processes. </span></li>
