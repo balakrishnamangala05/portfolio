@@ -15,3 +15,18 @@ body, html {
 main {
   padding: 20px;
 }
+
+main, #root > div:first-child {
+  padding-top: 70px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  max-width: none;
+  width: auto;
+}
+
+.nav-links {
+  margin-left: 20px;
+}

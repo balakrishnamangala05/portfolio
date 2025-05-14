@@ -4,65 +4,75 @@
     align-items: center;
     padding: 5px 20px;
     background-color: #d1d3d4;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: none;
     border: none;
     margin-top: 0;
-  }
+    height: 60px;
+}
 
-  .logo {
+.logo {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-  }
+    white-space: nowrap;
+    max-width: none;
+    display: inline-block;
+    margin-right: 20px;
+    overflow: visible;
+}
   
-  .logo:hover {
+.logo:hover {
     color: #007bff;
-  }
+    transform: none;
+}
 
-  .nav-links {
+.nav-links {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 20px;
-  }
+}
   
-  .nav-links a {
+.nav-links a {
     text-decoration: none;
     font-size: 1rem;
     color: #333;
     font-weight: 500;
-  }
+}
   
-  .nav-links a:hover {
+.nav-links a:hover {
     color: #007bff;
     font-weight: bold;
-  }
+}
 
-  .nav-item.active a {
+.nav-item.active a {
     color: #ff6347;
     font-weight: bold;
     border-bottom: 2px solid #ff6347;
-  }
+}
 
-  .social-icons {
+.social-icons {
     display: flex;
     gap: 10px;
-  }
+}
   
-  .social-icons img {
+.social-icons img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     cursor: pointer;
-  }
+}
 
-  .connect-btn {
+.connect-btn {
     display: flex;
     align-items: center;
     padding: 8px 16px;
@@ -74,20 +84,20 @@
     color: #333;
     margin-left: 20px;
     transition: all 0.3s ease-in-out;
-  }
+}
   
-  .connect-btn:hover {
+.connect-btn:hover {
     background-color: #333;
     color: #d1d3d4;
-  }
+}
 
-  .hamburger {
+.hamburger {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
+}
 
-  .nav-links.open {
+.nav-links.open {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,24 +110,24 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 100;
     width: 90%;
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .nav-links {
-      display: none;
+        display: none;
     }
   
     .hamburger {
-      display: block;
+        display: block;
     }
   
     .nav-links.open {
-      justify-content: center;
-      align-items: center;
+        justify-content: center;
+        align-items: center;
     }
   
     .nav-links a {
-      margin: 10px 0;
+        margin: 10px 0;
     }
-  }
+}
   
