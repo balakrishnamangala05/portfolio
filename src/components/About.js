@@ -39,7 +39,7 @@ const About = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
         >
-          👨‍💻 I worked as a Associate-II Software Engineer at Capgemini in India.
+          👨‍💻 I'm currently working as a Software Development Intern at Xeddy in Baltimore, where I design customer-facing features and engineer scalable RESTful APIs using Golang.
         </motion.p>
 
         <motion.div
@@ -56,8 +56,15 @@ const About = () => {
             <li>JavaScript</li>
             <li>Angular</li>
             <li>React</li>
+            <li>Golang</li>
+            <li>Spring Boot</li>
             <li>Node.js</li>
             <li>Python</li>
+            <li>Docker</li>
+            <li>Azure Devops</li>
+            <li>AWS</li>
+            <li>CI/CD</li>
+            <li>Git</li>
           </ul>
         </motion.div>
 
