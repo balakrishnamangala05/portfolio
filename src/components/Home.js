@@ -32,7 +32,7 @@ const Home = () => {
           <p>💠 I love coding, learning new technologies, and solving challenging problems!</p>
         </div>
         <a
-          href="/Balakrishna_s_Resume_docs.pdf"
+          href="/Balakrishna_Mangala_Resume_Doc_docx.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="resume-btn animated-resume-btn"
