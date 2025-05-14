@@ -35,6 +35,11 @@ const NavigationBar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Force the window to scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   const logoVariants = {
     initial: { opacity: 0, x: -50 },
     animate: { opacity: 1, x: 0, transition: { duration: 1 } },
