@@ -27,13 +27,14 @@ const Home = () => {
           </span>
         </h2>
         <div className="home-description">
-          <p>💠 A Computer Science Student passionate about building and enhancing software products.</p>
+          <p>💠 A Computer Science Graduate Student at UMBC passionate about building and enhancing software products.</p>
+          <p>💠 Currently working as a Software Developer Intern at Xeddy in Baltimore.</p>
           <p>💠 I love coding, learning new technologies, and solving challenging problems!</p>
-          <p>💠 I live in Baltimore, Maryland.</p>
         </div>
         <a
           href="/Balakrishna_s_Resume_docs.pdf"
-          download="Balakrishna_s_Resume_docs.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="resume-btn animated-resume-btn"
         >
           Resume
