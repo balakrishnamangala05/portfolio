@@ -3,21 +3,25 @@ import { motion } from "framer-motion";
 import "./Experience.css";
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState("Capgemini");
+  const [activeTab, setActiveTab] = useState("Xeddy");
 
   const skills = [
-    "C++",
-    "SQL",
-    "JavaScript",
+    "Python",
     "Java",
-    "HTML,/CSS",
+    "C/C++",
+    "HTML/CSS",
+    "JavaScript",
+    "Golang",
+    "SQL",
+    "React",
     "Angular",
-    "React.js",
     "Node.js",
+    "Spring Boot",
     "MongoDB",
-    "Git",
-    "PostgreSQL",
-    "Machine Learning",
+    "Azure DevOps",
+    "GitHub Actions",
+    "Docker",
+    "REST APIs",
   ];
 
   useEffect(() => {
@@ -52,6 +56,21 @@ const Experience = () => {
   return (
     <div className="experience-container" id="experience">
       <div className="experience-tabs">
+        <motion.button
+          className={`tab-button ${activeTab === "Xeddy" ? "active" : ""}`}
+          onClick={() => setActiveTab("Xeddy")}
+          variants={tabVariants}
+          whileHover="hover"
+        >
+          Xeddy
+          {activeTab === "Xeddy" && (
+            <motion.span
+              className="bubble-dot"
+              variants={tabVariants}
+              animate="bubble"
+            />
+          )}
+        </motion.button>
         <motion.button
           className={`tab-button ${activeTab === "Capgemini" ? "active" : ""}`}
           onClick={() => setActiveTab("Capgemini")}
@@ -100,6 +119,25 @@ const Experience = () => {
       </div>
 
       <div className="experience-content">
+        {activeTab === "Xeddy" && (
+          <div className="content-box xeddy-theme">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D4E0BAQGbVrBL2DFEFQ/company-logo_200_200/company-logo_200_200/0/1732348397682/xeddy_logo?e=1752710400&v=beta&t=kBcTur_1ElBUsl4Wv-mzd00Us08RcCPLnA8v9UNzETk"
+              alt="Xeddy Logo"
+              className="company-logo"
+            />
+            <h2>Xeddy</h2>
+            <h3>Software Developer Intern</h3>
+            <p>January 2025 - Present</p>
+            <ul>
+              <li><span>Designed and delivered customer-facing features for a web-based food ordering app, increasing user engagement by 15%.</span></li>
+              <li><span>Engineered scalable RESTful APIs using Golang, boosting backend request throughput by 20%.</span></li>
+              <li><span>Refactored frontend using React with lazy loading and performance optimizations, reducing load time by 30%.</span></li>
+              <li><span>Built CI/CD pipelines on Azure DevOps integrated with GitHub Actions, reducing release time by 40%.</span></li>
+            </ul>
+          </div>
+        )}
+
         {activeTab === "Capgemini" && (
           <div className="content-box capgemini-theme">
             <img
@@ -107,13 +145,14 @@ const Experience = () => {
               alt="Capgemini Logo"
               className="company-logo"
             />
-            <h2>Capgemini Engineering </h2>
-            <h3>Software Associate-II</h3>
-            <p>March 2022 - August 2023</p>
+            <h2>Capgemini Engineering</h2>
+            <h3>Associate-II Software Engineer / Senior Analyst</h3>
+            <p>July 2022 - August 2023</p>
             <ul>
-              <li><span>Developed and maintained components for both front-end and back-end of applications using the react.js and node.js.Conducted code reviews and contributed to the continuous improvement of development processes. </span></li>
-              <li><span>Worked on back-end development tasks, including server coding and database management. Participated in agile Software development, prototyped and code reviews with a small team of developers.</span></li>
-              <li><span>Designed new features and performance enhancements for existing systems. Designed and implemented dynamic solutions to visualize and deliver daily test result reports to team members using React.</span></li>
+              <li><span>Developed and maintained scalable RESTful and SOAP APIs using Java, Spring Boot, and Hibernate for enterprise-grade applications.</span></li>
+              <li><span>Conducted unit testing and contributed to CI/CD pipelines using Jenkins and GitHub Actions.</span></li>
+              <li><span>Built secure, maintainable microservices hosted on Pivotal Cloud Foundry, resulting in improved system resilience.</span></li>
+              <li><span>Participated in agile software development, prototyping and peer code reviews with a team of 6+ developers.</span></li>
             </ul>
           </div>
         )}
