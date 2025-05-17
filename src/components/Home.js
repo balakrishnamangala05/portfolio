@@ -8,9 +8,9 @@ const Home = () => {
     <div className="home-container" id="home">
       <div className="home-text">
         <h1 className="animated-heading">Balakrishna Mangala</h1>
-        <h2>
-          I'm a,{" "}
-          <span className="dynamic-text">
+        <h2 className="title-container">
+          <span className="static-text">I'm a</span>
+          <span className="dynamic-text-wrapper">
             <Typewriter
               words={[
                 "Software Engineer",

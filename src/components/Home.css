@@ -50,9 +50,24 @@
     color: #333;
   }
   
-  .dynamic-text {
+  .title-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+  }
+  
+  .static-text {
+    white-space: nowrap;
+  }
+  
+  .dynamic-text-wrapper {
+    display: inline-block;
     color: #007bff;
     font-weight: bold;
+    min-width: 250px; /* Adjust based on your longest profession */
   }
   
   .home-description {
@@ -166,6 +181,11 @@
     .profile-image {
       width: 300px;
       height: auto;
+    }
+  
+    .title-container {
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
   
