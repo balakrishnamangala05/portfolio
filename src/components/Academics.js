@@ -49,7 +49,7 @@ const Academics = () => {
         {activeAcademicsTab === "MS" && (
           <div className="academics-content-box ms-theme">
             <h2>Master of Science in Computer Science</h2>
-            <p><strong>GPA:</strong> 3.46</p>
+            <p><strong>GPA:</strong> 3.533</p>
             <ul>
               <li>Introduction to Data Science</li>
               <li>Design Analysis of Algorithms</li>
@@ -60,8 +60,8 @@ const Academics = () => {
               <li>Ethics in Software Engineering</li>
               <li>Fundamentals of Software Testing</li>
             </ul>
-            <p><strong>Duration:</strong> September 2023 - May 2025</p>
-          </div>
+             <p><strong>Duration:</strong> September 2023 - May 2025</p>
+          </div>  
         )}
 
         {activeAcademicsTab === "BTech" && (
@@ -78,7 +78,7 @@ const Academics = () => {
               <li>Operating Systems</li>
               <li>Computer Networks</li>
             </ul>
-            <p><strong>Duration:</strong> August 2018 - May 2022</p>
+            {/*<p><strong>Duration:</strong> August 2018 - May 2022</p>*/}
           </div>
         )}
 

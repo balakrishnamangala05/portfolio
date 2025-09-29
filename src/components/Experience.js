@@ -122,13 +122,13 @@ const Experience = () => {
         {activeTab === "Xeddy" && (
           <div className="content-box xeddy-theme">
             <img
-              src="https://media.licdn.com/dms/image/v2/D4E0BAQGbVrBL2DFEFQ/company-logo_200_200/company-logo_200_200/0/1732348397682/xeddy_logo?e=1752710400&v=beta&t=kBcTur_1ElBUsl4Wv-mzd00Us08RcCPLnA8v9UNzETk"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1qI5uzo2bq1oQruMashvhbUowN6fCrlRbc-GG-bZI2ppwO4kqIDal4T38GhCnvpJcHjI&usqp=CAU"
               alt="Xeddy Logo"
               className="company-logo"
             />
             <h2>Xeddy</h2>
             <h3>Software Developer Intern</h3>
-            <p>January 2025 - Present</p>
+            <p>October 2025 - May 2025</p>
             <ul>
               <li><span>Designed and delivered customer-facing features for a web-based food ordering app, increasing user engagement by 15%.</span></li>
               <li><span>Engineered scalable RESTful APIs using Golang, boosting backend request throughput by 20%.</span></li>

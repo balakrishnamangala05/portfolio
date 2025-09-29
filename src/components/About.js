@@ -29,7 +29,7 @@ const About = () => {
         >
           I'm Balakrishna Mangala, a passionate problem solver driven by a
           relentless pursuit of innovation. I am pursuing a Master's Degree in
-          Computer Science from UMBC currently holding a GPA of 3.46. My expertise spans from
+          Computer Science from UMBC currently holding a GPA of 3.533. My expertise spans from
           cutting-edge algorithms to intuitive user experiences.
         </motion.p>
 

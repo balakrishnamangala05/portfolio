@@ -27,12 +27,12 @@ const Home = () => {
           </span>
         </h2>
         <div className="home-description">
-          <p>💠 A Computer Science Graduate Student at UMBC passionate about building and enhancing software products.</p>
-          <p>💠 Currently working as a Software Developer Intern at Xeddy in Baltimore.</p>
-          <p>💠 I love coding, learning new technologies, and solving challenging problems!</p>
+          <p>💠 Software Development Engineer with 3+ years of experience building robust Java microservices and full-stack applications.</p>
+          <p>💠 Master's in Computer Science from UMBC (GPA: 3.533) and currently working as Full Stack Developer at Xeddy Inc.</p>
+          <p>💠 Passionate about cloud-native development, microservices architecture, and delivering scalable solutions using modern technologies!</p>
         </div>
         <a
-          href="/Balakrishna_Mangala_Resume_Doc_docx.pdf"
+          href="/Balakrishna_Mangala_SDE_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="resume-btn animated-resume-btn"

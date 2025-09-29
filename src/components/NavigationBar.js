@@ -23,7 +23,7 @@ const NavigationBar = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      window.history.pushState(null, "", `#${id}`);
+      window.history.pushState(null, "", `/${id}`);
     }
     setIsMenuOpen(false);
   };
@@ -87,7 +87,7 @@ const NavigationBar = () => {
               variants={linkVariants}
               whileHover="hover"
             >
-              <a href={`#${link.id}`} onClick={(e) => scrollToSection(e, link.id)}>
+              <a href={`/${link.id}`} onClick={(e) => scrollToSection(e, link.id)}>
                 {link.label}
               </a>
             </motion.li>
