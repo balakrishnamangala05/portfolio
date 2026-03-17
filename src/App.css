@@ -1,32 +1,4 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #D1D3D4;
-  color: #333;
-  overflow-x: hidden;
-}
-
 .App {
-  margin-top: 60px;
-  text-align: center;
-}
-
-main {
-  padding: 20px;
-}
-
-main, #root > div:first-child {
-  padding-top: 70px;
-}
-
-.navbar-left {
-  display: flex;
-  align-items: center;
-  max-width: none;
-  width: auto;
-}
-
-.nav-links {
-  margin-left: 20px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
 }
