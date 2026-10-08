@@ -1,57 +1,101 @@
-import React from 'react';
-import './About.css';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { TiltCard, SectionHeading } from './Motion3D';
 import profileImage from '../assets/profile-new.png';
 
-const highlights = [
-  { label: '3+', sub: 'Years Experience' },
-  { label: 'MS', sub: 'Computer Science, UMBC' },
-  { label: '4+', sub: 'Cloud Certifications' },
-  { label: '10+', sub: 'Projects Shipped' },
+const stats = [
+  { value: 4, suffix: '+', label: 'Years building production software' },
+  { value: 4, suffix: '', label: 'Companies, from datacenters to AI' },
+  { value: 6, suffix: '', label: 'Industry certifications' },
+  { value: 3.6, suffix: '', label: 'GPA, MS Computer Science, UMBC', decimals: 1 },
 ];
 
-const About: React.FC = () => {
+const Counter: React.FC<{ to: number; decimals?: number; suffix?: string }> = ({ to, decimals = 0, suffix = '' }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: '-20% 0px' });
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    if (!inView) return;
+    const start = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / 1400);
+      setV(to * (1 - Math.pow(1 - p, 4)));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, to]);
   return (
-    <div className="about-section">
-      <div className="about-inner">
-        <h2 className="section-title">About <span>Me</span></h2>
-
-        <div className="about-grid">
-          <div className="about-image-col">
-            <div className="about-image-border">
-              <img src={profileImage} alt="Balakrishna Mangala" />
-            </div>
-          </div>
-
-          <div className="about-text-col">
-            <p className="about-bio">
-              I'm <span>Balakrishna Mangala</span>, a Software Engineer with 3+ years of
-              experience building production-grade backend systems, cloud-native architectures,
-              and AI-integrated applications.
-            </p>
-            <p className="about-bio">
-              I hold a <span>Master of Science in Computer Science</span> from the University
-              of Maryland Baltimore County (CGPA: 3.533) and am passionate about designing
-              scalable distributed systems, intelligent agentic workflows, and developer tooling.
-            </p>
-            <p className="about-bio">
-              Currently at <span>Shifting Tech Mindset</span>, I lead development of
-              intelligent chatbot systems using LangChain and deploy microservices on AWS ECS.
-              Outside of work, I enjoy chess, Figma design, and exploring emerging AI research.
-            </p>
-
-            <div className="about-highlights">
-              {highlights.map(h => (
-                <div className="highlight-card" key={h.label}>
-                  <span className="highlight-num">{h.label}</span>
-                  <span className="highlight-sub">{h.sub}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <span ref={ref}>
+      {v.toFixed(decimals)}
+      {suffix}
+    </span>
   );
 };
+
+const chips = [
+  { text: 'LLMs', x: '-12%', y: '14%', z: 90 },
+  { text: 'RAG', x: '78%', y: '8%', z: 120 },
+  { text: 'FastAPI', x: '82%', y: '70%', z: 70 },
+  { text: 'AWS', x: '-8%', y: '78%', z: 110 },
+];
+
+const About: React.FC = () => (
+  <div className="about container">
+    <SectionHeading title="About" kicker="The engineer behind the systems." />
+    <div className="about-grid">
+      <TiltCard className="about-photo" max={14}>
+        <div className="about-photo-frame">
+          <img src={profileImage} alt="Portrait of Balakrishna Mangala" loading="lazy" />
+          <div className="about-photo-holo" aria-hidden="true" />
+        </div>
+        {chips.map(c => (
+          <span
+            key={c.text}
+            className="about-chip"
+            style={{ left: c.x, top: c.y, transform: `translateZ(${c.z}px)` }}
+          >
+            {c.text}
+          </span>
+        ))}
+      </TiltCard>
+
+      <div className="about-copy">
+        <motion.p
+          className="about-lead"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-15% 0px' }}
+          transition={{ duration: 0.8 }}
+        >
+          I'm an AI Engineer at Securiti AI, building the LLM services and retrieval pipelines behind
+          AI-driven data governance.
+        </motion.p>
+        <p>
+          My work sits where models meet production. I put OpenAI GPT and Gemini behind FastAPI services with
+          failover, build RAG pipelines with LangChain that stay grounded in sensitive enterprise data, and ship it
+          all through CI/CD on AWS and Azure.
+        </p>
+        <p>
+          Before Securiti, I built backend services and React dashboards for client teams at Marlabs, data services
+          for Sainsbury's at Capgemini, and infrastructure automation at CtrlS Datacenters. I hold an MS in Computer
+          Science from the University of Maryland Baltimore County.
+        </p>
+
+        <dl className="about-stats">
+          {stats.map(s => (
+            <div className="about-stat" key={s.label}>
+              <dt>
+                <Counter to={s.value} decimals={s.decimals} suffix={s.suffix} />
+              </dt>
+              <dd>{s.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+);
 
 export default About;
