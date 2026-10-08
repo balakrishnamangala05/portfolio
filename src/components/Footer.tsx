@@ -1,43 +1,59 @@
 import React, { useState } from 'react';
-import './Footer.css';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Magnetic } from './Motion3D';
+import { PROFILE } from '../data';
 
 const Footer: React.FC = () => {
   const [copied, setCopied] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const shift = useTransform(scrollYProgress, [0.7, 1], ['0%', '-25%']);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText('mangalabalakrishna04@gmail.com');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(PROFILE.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${PROFILE.email}`;
+    }
   };
 
   return (
-    <footer className="footer-section">
-      <div className="footer-inner">
-        <div className="footer-contact">
-          <h2 className="footer-title">Get In <span>Touch</span></h2>
-          <p className="footer-sub">
-            I'm currently open to new opportunities. Whether you have a question or just want to say hi,
-            my inbox is always open!
-          </p>
-          <a href="mailto:mangalabalakrishna04@gmail.com" className="btn-primary footer-mailto">
-            Say Hello →
+    <footer className="contact">
+      <div className="contact-marquee" aria-hidden="true">
+        <motion.div style={{ x: shift }}>
+          <span>Let's build something that ships</span>
+          <span>Let's build something that ships</span>
+        </motion.div>
+      </div>
+
+      <div className="container contact-inner">
+        <p className="contact-lede">
+          I'm open to AI Engineer, Forward Deployed Engineer, and Solutions Engineer roles. If you're hiring or just
+          want to talk about LLM systems, my inbox is open.
+        </p>
+
+        <Magnetic strength={0.2} className="contact-mail-wrap">
+          <a className="contact-mail" href={`mailto:${PROFILE.email}`} data-cursor="Write">
+            {PROFILE.email}
           </a>
-          <button className="copy-email" onClick={copyEmail}>
-            {copied ? '✓ Copied!' : '📋 Copy email'}
+        </Magnetic>
+
+        <div className="contact-actions">
+          <button className="btn btn-ghost" onClick={copy} aria-live="polite">
+            {copied ? 'Email copied' : 'Copy email'}
           </button>
+          <a className="btn btn-ghost" href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a className="btn btn-ghost" href={PROFILE.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
         </div>
 
-        <div className="footer-divider" />
-
-        <div className="footer-bottom">
-          <p className="footer-copy">
-            Designed & Built by <span>Balakrishna Mangala</span>
-          </p>
-          <div className="footer-links">
-            <a href="https://github.com/balakrishnamangala05" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/balakrishnamangala/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:mangalabalakrishna04@gmail.com">Email</a>
-          </div>
+        <div className="contact-bottom">
+          <span>Designed and built by {PROFILE.name}</span>
+          <span>React, Three.js, and Framer Motion</span>
         </div>
       </div>
     </footer>
