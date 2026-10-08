@@ -1,136 +1,80 @@
-import React from 'react';
-import './Education.css';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { TiltCard, SectionHeading } from './Motion3D';
+import { EDUCATION, CERTIFICATIONS } from '../data';
 
-const certifications = [
-  {
-    name: 'AWS Certified Solutions Architect – Associate',
-    code: 'SAA-C03',
-    issuer: 'Amazon Web Services',
-    category: 'Cloud',
-    color: '#FF9900',
-    link: 'https://www.credly.com/badges/3c19e5ec-2ecd-48d1-ad39-909b3a676bc8/public_url',
-  },
-  {
-    name: 'Microsoft Certified: Fabric Data Engineer Associate',
-    code: 'DP-700',
-    issuer: 'Microsoft',
-    category: 'Data Engineering',
-    color: '#0078D4',
-    link: 'https://learn.microsoft.com/en-us/users/balakrishnamangala/credentials/9be97dadf53fcaec',
-  },
-  {
-    name: 'Microsoft Certified: Azure Data Fundamentals',
-    code: 'DP-900',
-    issuer: 'Microsoft',
-    category: 'Cloud / Data',
-    color: '#0078D4',
-    link: 'https://learn.microsoft.com/en-us/users/balakrishnamangala/credentials/5b6629dc8f150c4b',
-  },
-  {
-    name: 'Oracle Cloud Infrastructure 2025 AI Foundations Associate',
-    code: 'OCI AI',
-    issuer: 'Oracle',
-    category: 'AI / Cloud',
-    color: '#F80000',
-    link: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=FFA7F82057C39124BA761A5B3902FC02BAA93C272F1120632A59D73357AADA7A',
-  },
-  {
-    name: 'Machine Learning with Python – Level 1',
-    code: 'ML-PY',
-    issuer: 'IBM',
-    category: 'Machine Learning',
-    color: '#054ADA',
-    link: 'https://www.credly.com/badges/6408ea0a-b118-488b-83dc-6db3b52aa881/public_url',
-  },
-  {
-    name: 'Python for Data Science',
-    code: 'PY-DS',
-    issuer: 'IBM',
-    category: 'Data Science',
-    color: '#054ADA',
-    link: 'https://www.credly.com/badges/14262962-4d58-44cc-be18-e22672756270/public_url',
-  },
-];
-
-const Education: React.FC = () => {
+const CertCard: React.FC<{ c: (typeof CERTIFICATIONS)[number]; i: number }> = ({ c, i }) => {
+  const [flipped, setFlipped] = useState(false);
   return (
-    <div className="edu-section">
-      <div className="edu-inner">
-        <h2 className="section-title">Education & <span>Certifications</span></h2>
-
-        {/* Education Cards */}
-        <div className="edu-cards">
-          <div className="edu-card">
-            <div className="edu-card-left">
-              <div className="edu-degree-badge">MS</div>
-            </div>
-            <div className="edu-card-right">
-              <h3>Master of Science — Computer Science</h3>
-              <p className="edu-school">University of Maryland Baltimore County</p>
-              <div className="edu-meta">
-                <span className="edu-gpa">CGPA: 3.533 / 4.0</span>
-              </div>
-              <div className="edu-courses">
-                <p className="edu-courses-label">Relevant Coursework:</p>
-                <div className="edu-course-tags">
-                  {['Design Analysis & Algorithms', 'Operating Systems', 'Machine Learning', 'DBMS', 'Distributed Systems', 'Data Structures', 'Quantum Computation'].map(c => (
-                    <span key={c}>{c}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="edu-card">
-            <div className="edu-card-left">
-              <div className="edu-degree-badge">B.Tech</div>
-            </div>
-            <div className="edu-card-right">
-              <h3>Bachelor of Technology — Computer Science & Engineering</h3>
-              <p className="edu-school">Jawaharlal Nehru Technological University</p>
-              <div className="edu-meta">
-                <span className="edu-gpa">GPA: 3.9 / 4.0</span>
-              </div>
-              <div className="edu-courses">
-                <p className="edu-courses-label">Relevant Coursework:</p>
-                <div className="edu-course-tags">
-                  {['Data Structures', 'Algorithms', 'DBMS', 'Operating Systems', 'Computer Networks', 'OOP', 'Compiler Design'].map(c => (
-                    <span key={c}>{c}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <h3 className="cert-heading">Certifications</h3>
-        <div className="cert-grid">
-          {certifications.map(cert => (
-            <div
-              className="cert-card"
-              key={cert.code}
-              style={{ '--cert-color': cert.color } as React.CSSProperties}
-            >
-              <div className="cert-top">
-                <span className="cert-category">{cert.category}</span>
-                <a
-                  className="cert-verify"
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Verify ↗
-                </a>
-              </div>
-              <p className="cert-name">{cert.name}</p>
-              <p className="cert-issuer">{cert.issuer}</p>
-            </div>
-          ))}
+    <motion.div
+      className="cert"
+      style={{ '--c': c.color } as React.CSSProperties}
+      initial={{ opacity: 0, rotateY: -70, y: 40 }}
+      whileInView={{ opacity: 1, rotateY: 0, y: 0 }}
+      viewport={{ once: true, margin: '-10% 0px' }}
+      transition={{ duration: 0.9, delay: i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
+    >
+      <div
+        className={`cert-inner ${flipped ? 'is-flipped' : ''}`}
+        onPointerEnter={e => e.pointerType === 'mouse' && setFlipped(true)}
+        onPointerLeave={e => e.pointerType === 'mouse' && setFlipped(false)}
+      >
+        <button
+          className="cert-face cert-front"
+          onClick={() => setFlipped(f => !f)}
+          aria-label={`${c.name}, ${c.issuer}. Show verification link`}
+        >
+          <span className="cert-code">{c.code}</span>
+          <span className="cert-name">{c.name}</span>
+          <span className="cert-issuer">{c.issuer}</span>
+          <span className="cert-orb" aria-hidden="true" />
+        </button>
+        <div className="cert-face cert-back">
+          <span className="cert-category">{c.category}</span>
+          <span className="cert-issuer">{c.issuer}</span>
+          <a href={c.link} target="_blank" rel="noopener noreferrer" data-cursor="Verify">
+            Verify credential
+          </a>
+          <button className="cert-flip-back" onClick={() => setFlipped(false)}>
+            Back
+          </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
+
+const Education: React.FC = () => (
+  <div className="education container">
+    <SectionHeading title="Education" kicker="Degrees, and the certifications I've earned since." />
+    <div className="edu-grid">
+      {EDUCATION.map(e => (
+        <TiltCard key={e.short} className="edu" max={8}>
+          <div className="edu-gpa" aria-label={`GPA ${e.gpa} out of ${e.scale}`}>
+            <span className="edu-gpa-num">{e.gpa}</span>
+            <span className="edu-gpa-scale">/ {e.scale} GPA</span>
+          </div>
+          <span className="edu-short" aria-hidden="true">
+            {e.short}
+          </span>
+          <h3>{e.degree}</h3>
+          <p className="edu-school">{e.school}</p>
+          <div className="edu-courses">
+            {e.courses.map(c => (
+              <span key={c}>{c}</span>
+            ))}
+          </div>
+        </TiltCard>
+      ))}
+    </div>
+
+    <h3 className="cert-heading">Certifications</h3>
+    <div className="cert-grid">
+      {CERTIFICATIONS.map((c, i) => (
+        <CertCard key={c.code} c={c} i={i} />
+      ))}
+    </div>
+  </div>
+);
 
 export default Education;
