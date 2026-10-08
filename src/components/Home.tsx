@@ -1,84 +1,123 @@
-import React from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-import './Home.css';
-import profileImage from '../assets/prof.JPG';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { SplitText, Magnetic } from './Motion3D';
+import { scrollToId } from './NavigationBar';
+import { PROFILE } from '../data';
 
-const Home: React.FC = () => {
-  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
+const HeroScene = lazy(() => import('./HeroScene'));
+
+const focus = ['RAG pipelines', 'multi-provider LLM services', 'FastAPI backends', 'cloud delivery on AWS and Azure'];
+
+const Home: React.FC<{ ready: boolean }> = ({ ready }) => {
+  const [i, setI] = useState(0);
+  const { scrollY } = useScroll();
+  const sceneY = useTransform(scrollY, [0, 800], [0, 220]);
+  const sceneScale = useTransform(scrollY, [0, 800], [1, 0.82]);
+  const sceneOpacity = useTransform(scrollY, [0, 700], [1, 0.15]);
+  const textY = useTransform(scrollY, [0, 800], [0, -120]);
+
+  useEffect(() => {
+    const t = setInterval(() => setI(v => (v + 1) % focus.length), 2600);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <div className="home-wrapper">
-      <div className="home-content">
-        <div className="home-text">
-          <p className="home-greeting">Hi, I'm</p>
-          <h1 className="home-name">Balakrishna Mangala</h1>
-          <h2 className="home-role">
-            <span className="role-prefix">I'm a </span>
-            <span className="role-typed">
-              <Typewriter
-                words={[
-                  'Software Engineer',
-                  'Full-Stack Developer',
-                  'AI/ML Engineer',
-                  'Cloud Architect',
-                  'Backend Engineer',
-                ]}
-                loop={0}
-                cursor
-                cursorStyle="|"
-                typeSpeed={70}
-                deleteSpeed={40}
-                delaySpeed={1500}
-              />
-            </span>
-          </h2>
-          <p className="home-summary">
-            Software Engineer with <span>3+ years</span> of industry experience delivering
-            production-grade backend systems, cloud-native architectures, and AI-integrated applications.
-            MS in Computer Science from UMBC. Certified across <span>AWS, Azure & Oracle Cloud</span>.
-          </p>
-          <div className="home-actions">
+    <div className="hero">
+      <motion.div className="hero-scene" style={{ y: sceneY, scale: sceneScale, opacity: sceneOpacity }}>
+        {ready ? (
+          <Suspense fallback={<div className="hero-scene-fallback" />}>
+            <HeroScene />
+          </Suspense>
+        ) : (
+          <div className="hero-scene-fallback" />
+        )}
+      </motion.div>
+
+      <motion.div className="hero-copy" style={{ y: textY }}>
+        <motion.p
+          className="hero-status"
+          initial={{ opacity: 0, y: 12 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <span className="pulse" aria-hidden="true" />
+          {PROFILE.role} at {PROFILE.company}, open to AI Engineer and FDE roles
+        </motion.p>
+
+        <h1 className="hero-name">
+          <SplitText text={PROFILE.firstName} play={ready} delay={0.25} className="hero-name-line" />
+          <SplitText text={PROFILE.lastName} play={ready} delay={0.55} className="hero-name-line is-outline" />
+        </h1>
+
+        <motion.div
+          className="hero-focus"
+          initial={{ opacity: 0 }}
+          animate={ready ? { opacity: 1 } : {}}
+          transition={{ delay: 1.1, duration: 0.6 }}
+        >
+          <span>I build</span>
+          <span className="hero-focus-window">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={focus[i]}
+                className="hero-focus-word"
+                initial={{ y: '100%', rotateX: -80, opacity: 0 }}
+                animate={{ y: '0%', rotateX: 0, opacity: 1 }}
+                exit={{ y: '-100%', rotateX: 80, opacity: 0 }}
+                transition={{ duration: 0.55, ease: [0.2, 0.8, 0.2, 1] }}
+              >
+                {focus[i]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </motion.div>
+
+        <motion.p
+          className="hero-lede"
+          initial={{ opacity: 0, y: 16 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.25, duration: 0.7 }}
+        >
+          4+ years shipping production software across AI, backend, and cloud. I take an ambiguous problem,
+          scope it with the people who have it, and get a working system into production.
+        </motion.p>
+
+        <motion.div
+          className="hero-actions"
+          initial={{ opacity: 0, y: 16 }}
+          animate={ready ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1.4, duration: 0.7 }}
+        >
+          <Magnetic>
             <a
-              href="/Balakrishna_Mangala_Google_SWE_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
+              href="#projects"
+              className="btn btn-solid"
+              onClick={e => {
+                e.preventDefault();
+                scrollToId('projects');
+              }}
             >
-              Download Resume
+              See my projects
             </a>
-            <a href="#contact" className="btn-outline" onClick={scrollToContact}>
-              Get In Touch
+          </Magnetic>
+          <Magnetic>
+            <a href={PROFILE.resume} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+              Download resume
             </a>
-          </div>
-          <div className="home-socials">
-            <a href="https://www.linkedin.com/in/balakrishnamangala/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="https://github.com/balakrishnamangala05" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            </a>
-            <a href="mailto:mangalabalakrishna04@gmail.com" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
-          </div>
-        </div>
+          </Magnetic>
+        </motion.div>
+      </motion.div>
 
-        <div className="home-image-wrapper">
-          <div className="home-image-glow" />
-          <div className="home-image-frame">
-            <img src={profileImage} alt="Balakrishna Mangala" />
-          </div>
-        </div>
-      </div>
-
-      <div className="home-scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-wheel" />
-        </div>
-      </div>
+      <motion.div
+        className="hero-scroll"
+        initial={{ opacity: 0 }}
+        animate={ready ? { opacity: 1 } : {}}
+        transition={{ delay: 1.8 }}
+        aria-hidden="true"
+      >
+        <span>Scroll</span>
+        <i />
+      </motion.div>
     </div>
   );
 };
