@@ -1,96 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-:root {
-  --bg-primary: #0d1224;
-  --bg-secondary: #111827;
-  --bg-card: #1a2234;
-  --accent-cyan: #16f2b3;
-  --accent-pink: #e879f9;
-  --accent-blue: #7c3aed;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border: rgba(255, 255, 255, 0.08);
-  --glow-cyan: rgba(22, 242, 179, 0.15);
-  --glow-pink: rgba(232, 121, 249, 0.15);
-}
-
 html {
-  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-html, body {
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #070a1f;
+  color: #e9ecff;
+  font-family: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-a {
-  text-decoration: none;
+button {
+  font: inherit;
   color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-::selection {
-  background: var(--accent-cyan);
-  color: var(--bg-primary);
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-cyan);
-  border-radius: 3px;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.section-title span {
-  color: var(--accent-cyan);
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
-  border-radius: 2px;
 }
